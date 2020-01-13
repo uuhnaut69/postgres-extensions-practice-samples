@@ -1,0 +1,9 @@
+language: java
+
+script: 
+  - cd spring-boot-postgresql-samples
+  - mvn clean
+
+cache:
+  directories:
+  - '$HOME/.m2/repository'
