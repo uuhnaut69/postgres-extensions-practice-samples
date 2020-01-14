@@ -1,7 +1,9 @@
 language: java
 
 script: 
-  - cd spring-boot-postgresql-samples
+  - cd spring-boot-pgroonga-samples
+  - mvn clean
+  - cd .. && cd spring-boot-zombodb-samples
   - mvn clean
 
 cache:
