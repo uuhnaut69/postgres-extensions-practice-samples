@@ -74,6 +74,20 @@ PostgreSQL supports full text search against languages that use only alphabet an
   create extension pgroonga;
   ```
   
+  - Create pgroonga index:
+  
+  ```bash
+  
+  CREATE INDEX pgroonga_full_name_index ON account USING pgroonga (full_name);
+  ```
+  
+  - Disable sequential scan to ensure using pgroonga index:
+  
+  ```bash
+  
+  SET enable_seqscan = off;
+  ```
+  
   - Generate dummy data endpoint
   
   ``` bash
