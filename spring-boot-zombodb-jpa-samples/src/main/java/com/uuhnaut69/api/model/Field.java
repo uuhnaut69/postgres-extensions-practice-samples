@@ -3,7 +3,6 @@ package com.uuhnaut69.api.model;
 import java.io.Serializable;
 import java.util.UUID;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +27,10 @@ public class Field implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
-	@Column(columnDefinition = "zdb.fulltext")
 	private String field;
+
+	public Field(String field) {
+		this.field = field;
+	}
+
 }
