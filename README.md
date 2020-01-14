@@ -44,5 +44,6 @@ Zombodb brings powerful text-search and analytics features to Postgres by using 
   zdb.default_elasticsearch_url = 'http://localhost:9200/'
   ```
   
+  - Init db in this example following offical github of zombodb https://github.com/zombodb/zombodb/blob/master/TUTORIAL.md
   </p>
 </details>
