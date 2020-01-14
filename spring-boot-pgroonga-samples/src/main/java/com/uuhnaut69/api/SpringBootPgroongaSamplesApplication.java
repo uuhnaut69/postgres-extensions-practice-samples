@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootPostgresqlSamplesApplication {
+public class SpringBootPgroongaSamplesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootPostgresqlSamplesApplication.class, args);
+		SpringApplication.run(SpringBootPgroongaSamplesApplication.class, args);
 	}
 
 }
