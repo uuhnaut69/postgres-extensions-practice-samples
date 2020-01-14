@@ -1,0 +1,10 @@
+version: '2'
+services:
+  PGroonga:
+    image: groonga/pgroonga:latest
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
