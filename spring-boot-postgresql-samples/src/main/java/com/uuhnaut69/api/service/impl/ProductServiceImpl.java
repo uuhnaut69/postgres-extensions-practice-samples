@@ -10,7 +10,7 @@ import com.uuhnaut69.api.repository.ProductRepository;
 import com.uuhnaut69.api.service.ProductService;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class ProductServiceImpl implements ProductService {
 
 	private final ProductRepository productRepository;
@@ -20,8 +20,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Product> findAll(String text) {
 		return productRepository.fullTextSearch(text);
+	}
+
+	@Override
+	public void insert(Product product) {
+		productRepository.insertProduct(product);
 	}
 
 }

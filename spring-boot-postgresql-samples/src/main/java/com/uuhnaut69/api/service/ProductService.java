@@ -8,4 +8,5 @@ public interface ProductService {
 
 	List<Product> findAll(String text);
 
+	void insert(Product product);
 }
