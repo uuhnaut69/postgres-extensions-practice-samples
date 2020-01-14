@@ -5,9 +5,9 @@ Postgres extensions practice samples integrate with spring boot
 
 | Project | Status |
 | --- | --- |
-| Postgres zombodb sample | ![](https://travis-ci.com/uuhnaut69/postgres-extensions-practice-samples.svg?branch=master) |
+| Projects | ![](https://travis-ci.com/uuhnaut69/postgres-extensions-practice-samples.svg?branch=master) |
 
-# Installation
+# Zombodb
 
 <details>
   <summary><b>Zombodb</b></summary>
@@ -46,4 +46,45 @@ Zombodb brings powerful text-search and analytics features to Postgres by using 
   
   - Init db in this example following offical github of zombodb https://github.com/zombodb/zombodb/blob/master/TUTORIAL.md
   </p>
+</details>
+
+# Pgroonga
+
+<details>
+  <summary><b>Pgroonga</b></summary>
+  <p>
+    PGroonga is a PostgreSQL extension to use Groonga as the index.
+
+PostgreSQL supports full text search against languages that use only alphabet and digit. It means that PostgreSQL doesn't support full text search against Japanese, Chinese and so on. You can use super fast full text search feature against all languages by installing PGroonga into your PostgreSQL!
+  </p>
+  
+  <p>
+  - Run docker
+  
+  ``` bash
+  
+  cd spring-boot-pgroonga-samples && docker-compose up -d
+  ```
+  </p> 
+
+  - Add extension to db
+  
+  ``` bash
+  
+  create extension pgroonga;
+  ```
+  
+  - Generate dummy data endpoint
+  
+  ``` bash
+  
+  [POST] localhost:8080/accounts
+  ```
+  
+  - Query endpoint:
+  
+  ``` bash
+  
+  [GET] localhost:8080/accounts?text=Thomas
+  ```
 </details>
