@@ -2,7 +2,9 @@ package com.uuhnaut69.api.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -23,4 +25,9 @@ public interface ProductRepository {
 			@Result(property = "discontinued", column = "discontinued"),
 			@Result(property = "availabilityDate", column = "availability_date"), })
 	List<Product> fullTextSearch(String text);
+
+	@Insert("INSERT INTO products(id, name, keywords,short_summary,long_description,price,inventory_count,discontinued,availability_date) "
+			+ " VALUES (#{id}, #{name}, #{keywords}, #{shortSummary}, #{longDescription}, #{price}, #{inventoryCount}, #{discontinued}, #{availabilityDate})")
+	@Options(useGeneratedKeys = true, keyProperty = "id")
+	void insertProduct(Product product);
 }
