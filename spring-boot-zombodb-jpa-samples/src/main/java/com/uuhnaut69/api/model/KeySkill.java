@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Field implements Serializable {
+public class KeySkill implements Serializable {
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class Field implements Serializable {
 
 	private String name;
 
-	public Field(String name) {
+	public KeySkill(String name) {
 		this.name = name;
 	}
 
