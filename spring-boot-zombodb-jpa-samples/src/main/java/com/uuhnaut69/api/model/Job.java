@@ -39,12 +39,14 @@ public class Job implements Serializable {
 
 	private String position;
 
-	private String keySkills;
-
 	private String seniority;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "field_id")
+	@JoinColumn(name = "job_id")
 	private Set<Field> fields = new HashSet<>();
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "job_id")
+	private Set<KeySkill> keySkills = new HashSet<>();
 
 }
