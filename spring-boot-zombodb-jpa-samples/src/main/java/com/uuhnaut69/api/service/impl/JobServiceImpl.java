@@ -17,6 +17,9 @@ import com.uuhnaut69.api.service.FieldService;
 import com.uuhnaut69.api.service.JobService;
 import com.uuhnaut69.api.service.KeySkillService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @Transactional
 public class JobServiceImpl implements JobService {
@@ -38,13 +41,14 @@ public class JobServiceImpl implements JobService {
 		List<Job> jobs = new ArrayList<>();
 		List<KeySkill> keySkills = keySkillService.getKeySkills();
 		List<Field> fields = fieldService.getFields();
-		IntStream.range(0, 10).forEach(i -> {
+		IntStream.range(0, 5).forEach(i -> {
 			Job job = new Job();
 			job.setTitle(faker.job().title());
 			job.setPosition(faker.job().position());
 			job.setSeniority(faker.job().seniority());
-			IntStream.range(0, 3).forEach(e -> job.getFields().add(fields.get(random.nextInt(fields.size()))));
-			IntStream.range(0, 3).forEach(e -> job.getKeySkills().add(keySkills.get(random.nextInt(keySkills.size()))));
+			IntStream.range(0, 2).forEach(e -> job.getFields().add(fields.get(random.nextInt(fields.size()))));
+			IntStream.range(0, 2).forEach(e -> job.getKeySkills().add(keySkills.get(random.nextInt(keySkills.size()))));
+			log.info("Construct job {}", job);
 			jobs.add(job);
 		});
 		if (!jobs.isEmpty()) {
@@ -55,7 +59,7 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public List<Job> fullTextSearch(String text) {
-		return null;
+		return jobRepository.findAll();
 	}
 
 }

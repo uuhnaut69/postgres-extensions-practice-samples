@@ -26,7 +26,7 @@ public class FieldServiceImpl implements FieldService {
 	public List<Field> dummyFieldData() {
 		Faker faker = new Faker();
 		List<Field> fields = new ArrayList<>();
-		IntStream.range(0, 5).forEach(e -> fields.add(new Field(faker.job().field())));
+		IntStream.range(0, 3).forEach(e -> fields.add(new Field(faker.job().field())));
 		if (!fields.isEmpty()) {
 			fieldRepository.saveAll(fields);
 		}

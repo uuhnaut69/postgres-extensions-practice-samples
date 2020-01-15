@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,12 +41,12 @@ public class Job implements Serializable {
 
 	private String seniority;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "job_id")
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "job_field", joinColumns = @JoinColumn(name = "job_id"), inverseJoinColumns = @JoinColumn(name = "field_id"))
 	private Set<Field> fields = new HashSet<>();
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "job_id")
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "job_key_skill", joinColumns = @JoinColumn(name = "job_id"), inverseJoinColumns = @JoinColumn(name = "key_skill_id"))
 	private Set<KeySkill> keySkills = new HashSet<>();
 
 }

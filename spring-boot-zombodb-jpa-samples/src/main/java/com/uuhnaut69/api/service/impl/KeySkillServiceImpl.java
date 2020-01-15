@@ -26,7 +26,7 @@ public class KeySkillServiceImpl implements KeySkillService {
 	public List<KeySkill> dummyKeySkillData() {
 		Faker faker = new Faker();
 		List<KeySkill> keySkills = new ArrayList<>();
-		IntStream.range(0, 5).forEach(e -> keySkills.add(new KeySkill(faker.job().keySkills())));
+		IntStream.range(0, 3).forEach(e -> keySkills.add(new KeySkill(faker.job().keySkills())));
 		if (!keySkills.isEmpty()) {
 			keySkillRepository.saveAll(keySkills);
 		}
